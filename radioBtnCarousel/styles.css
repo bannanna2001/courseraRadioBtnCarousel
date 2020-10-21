@@ -1,0 +1,215 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+    margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+body{
+    min-height: 100vh;
+}
+
+section{
+    position: relative;
+    width: 90%;
+    margin: 5% auto;
+}
+
+article{
+    float: left;
+    width: 23%;
+}
+
+figure{
+    padding: 3%;
+}
+
+article:nth-child(2){
+    margin: 0 1% 0 2%;
+}
+article:nth-child(3){
+    margin: 0 2% 0 1%;
+}
+
+.img_wrapper{
+    width: 100%;
+    height: 250px;
+}
+
+figcaption{
+    display: none;
+}
+
+figure:hover figcaption{
+    padding-top: 1em;
+    display: block;
+}
+
+figure:hover {
+    box-shadow: 0 0 20px #857777;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding:0;
+
+    background-color: rgba(89, 86, 86, .7);
+    z-index: 2;
+}
+
+.modal__img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    margin: -15% 0 0 -25%;
+}
+
+.modal:target {
+    display: block;
+}
+
+.close_modal{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+.close_modal img{
+    width: 40px;
+}
+
+.slaider{
+    display: none;
+}
+
+.labels{
+  clear: both;
+  padding-top: 4em;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.labels label::before{
+    content: url(img/radio.svg);
+}
+
+.labels label::before{
+    content: url(img/radio.svg);
+}
+
+.slaider_input_1:checked ~ article:nth-of-type(n+5){
+    display: none;
+}
+
+.slaider_input_1:checked ~ .labels > .label_1{
+    content: url(img/radioOn.svg);
+}
+
+.slaider_input_2:checked ~ .labels > .label_2{
+    content: url(img/radioOn.svg);
+}
+
+.slaider_input_3:checked ~ .labels > .label_3{
+    content: url(img/radioOn.svg);
+}
+
+.slaider_input_4:checked ~ .labels > .label_4{
+    content: url(img/radioOn.svg);
+}
+
+.slaider_input_2:checked ~ article:nth-of-type(-n+3),
+.slaider_input_2:checked ~ article:nth-of-type(n+8){
+    display: none;
+}
+
+.slaider_input_3:checked ~ article:nth-of-type(-n+6),
+.slaider_input_3:checked ~ article:nth-of-type(n+11){
+    display: none;
+}
+
+.slaider_input_4:checked ~ article:nth-of-type(-n+9),
+.slaider_input_4:checked ~ article:nth-of-type(n+14){
+    display: none;
+}
